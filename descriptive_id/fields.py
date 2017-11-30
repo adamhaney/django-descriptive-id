@@ -31,9 +31,9 @@ class DescriptiveIDField(CharField):
         kwargs['auto'] = self.auto
 
         if self.auto:
-            kwargs.pop('editable')
-            kwargs.pop('blank')
-            kwargs.pop('unique')
+            kwargs.pop('editable', False)
+            kwargs.pop('blank', True)
+            kwargs.pop('unique', True)
             kwargs['auto'] = True
 
         return name, path, args, kwargs
